@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://icon16stitched.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Sprite
+
+var frames = 0
+var start
+
+func _process(delta):
+	frames += 1
+	if frames == 1000: # warmup
+		start = OS.get_ticks_msec()
+	elif frames == 11000:
+		global.stitch = OS.get_ticks_msec() - start
+		get_tree().change_scene(\"res://bench.tscn\")
+"
+
+[node name="Sprite" type="Sprite"]
+texture = ExtResource( 1 )
+centered = false
+script = SubResource( 1 )

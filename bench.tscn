@@ -25,7 +25,7 @@ func _ready():
 			\"\\nTile Shader: \" + str(global.tileshader) + \\
 			\"\\nStitched Shader: \" + str(global.stitchshader) + \\
 			\"\\n\\nDriver: \" + OS.get_video_driver_name(OS.VIDEO_DRIVER_GLES3) + \\
-			\"\\nCPU Cores: \" + str(OS.get_processor_count()) + \\
+			\"\\nCPU Threads: \" + str(OS.get_processor_count()) + \\
 			\"\\nGodot Version: \" + Engine.get_version_info()[\"string\"]
 
 func _on_Timer_timeout():

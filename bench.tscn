@@ -17,14 +17,19 @@ func _ready():
 		get_tree().change_scene(\"res://tileshader/tileshader.tscn\")
 	elif global.stitchshader == -1:
 		get_tree().change_scene(\"res://stitchshader/stitchshader.tscn\")
+	elif global.texturerect == -1:
+		get_tree().change_scene(\"res://texturerect/texturerect.tscn\")
 	else:
 		Engine.target_fps = 30
-		$Label.text = \"Time in milliseconds for 10000 frames (lower is better):\" + \\
+		$Label.text = \"Time (ms) for 10000 frames (lower is better):\" + \\
 			\"\\nTile Map: \" + str(global.tilemap) + \\
 			\"\\nStitched Sprite: \" + str(global.stitch) + \\
 			\"\\nTile Shader: \" + str(global.tileshader) + \\
 			\"\\nStitched Shader: \" + str(global.stitchshader) + \\
-			\"\\n\\nDriver: \" + OS.get_video_driver_name(OS.VIDEO_DRIVER_GLES3) + \\
+			\"\\nTexture Rect: \" + str(global.texturerect) + \\
+			\"\\n\\nGraphics API: \" + OS.get_video_driver_name(OS.VIDEO_DRIVER_GLES3) + \\
+			\"\\nGPU Name: \" + VisualServer.get_video_adapter_name() + \\
+			\"\\nGPU Vendor: \" + VisualServer.get_video_adapter_vendor() + \\
 			\"\\nCPU Threads: \" + str(OS.get_processor_count()) + \\
 			\"\\nGodot Version: \" + Engine.get_version_info()[\"string\"]
 

@@ -3,7 +3,7 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Timer
 
-var countdown = 5
+var countdown = 3
 const text = \"Benchmark may take a few minutes.\\nStarting in \"
 
 func _ready():
@@ -23,7 +23,10 @@ func _ready():
 			\"\\nTile Map: \" + str(global.tilemap) + \\
 			\"\\nStitched Sprite: \" + str(global.stitch) + \\
 			\"\\nTile Shader: \" + str(global.tileshader) + \\
-			\"\\nStitched Shader: \" + str(global.stitchshader)
+			\"\\nStitched Shader: \" + str(global.stitchshader) + \\
+			\"\\n\\nDriver: \" + OS.get_video_driver_name(OS.VIDEO_DRIVER_GLES3) + \\
+			\"\\nCPU Cores: \" + str(OS.get_processor_count()) + \\
+			\"\\nGodot Version: \" + Engine.get_version_info()[\"string\"]
 
 func _on_Timer_timeout():
 	countdown -= 1
